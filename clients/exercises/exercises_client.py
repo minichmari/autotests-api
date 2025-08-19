@@ -9,8 +9,8 @@ from clients.private_http_builder import AuthenticationUserDict, get_private_htt
 
 class Exercise(TypedDict):
     """
-        Описание структуры задания.
-        """
+    Описание структуры задания.
+    """
     id: str
     title: str
     courseId: str
@@ -21,10 +21,16 @@ class Exercise(TypedDict):
     estimatedTime: str
 
 class GetExerciseResponseDict(TypedDict):
+    """
+    Описание структуры ответа получения задания.
+    """
     exercise: Exercise
 
 class GetExercisesResponseDict(TypedDict):
-    exercises : list[Exercise]
+    """
+    Описание структуры ответа получения заданий.
+    """
+    exercises: list[Exercise]
 
 class GetExerciseQueryDict(TypedDict):
     """
@@ -46,6 +52,9 @@ class CreateExerciseRequestDict(TypedDict):
     estimatedTime: str
 
 class CreateExerciseResponseDict(TypedDict):
+    """
+    Описание структуры ответа создания задания.
+    """
     exercise: Exercise
 
 
@@ -61,6 +70,9 @@ class UpdateExerciseRequestDict(TypedDict):
     estimatedTime: str | None
 
 class UpdateExerciseResponseDict(TypedDict):
+    """
+    Описание структуры ответа обновления задания.
+    """
     exercise: Exercise
 
 class ExercisesClient(APIClient):
@@ -115,6 +127,7 @@ class ExercisesClient(APIClient):
         """
         return self.delete(f"/api/v1/exercises/{exercise_id}")
 
+    # Добавили новые методы
     def get_exercise(self, exercise_id: str) -> GetExerciseResponseDict:
         response = self.get_exercise_api(exercise_id)
         return response.json()
