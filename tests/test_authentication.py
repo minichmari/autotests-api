@@ -1,5 +1,5 @@
 from http import HTTPStatus
-
+import pytest
 from clients.authentication.authentication_client import get_authentication_client
 from clients.authentication.authentication_schema import LoginResponseSchema, LoginRequestSchema
 from clients.users.public_users_client import get_public_users_client
@@ -12,7 +12,8 @@ from tools.assertions.authentication import assert_login_response
 
 
 
-
+@pytest.mark.authentication
+@pytest.mark.regression
 def test_login():
     # Инициализация клиентов
     public_users_client = get_public_users_client()
