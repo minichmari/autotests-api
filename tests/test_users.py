@@ -1,10 +1,10 @@
 from http import HTTPStatus
 import pytest
-from httpx import request
+
 
 from clients.users.private_users_client import PrivateUsersClient
 from clients.users.public_users_client import get_public_users_client, PublicUsersClient
-
+from fixtures.users import UserFixture
 from clients.users.users_schema import CreateUserRequestSchema, CreateUserResponseSchema, GetUserResponseSchema
 from tools.assertions.base import assert_status_code
 from tools.assertions.schema import validate_json_schema
@@ -31,8 +31,9 @@ def test_create_user(public_users_client: PublicUsersClient):
 def test_get_user_me(private_users_client:PrivateUsersClient, function_user):
     response = private_users_client.get_user_me_api()
 
-    assert_status_code(200, 200)
-    response_data = GetUserResponseSchema.model_validate(response.json())
+    assert_status_code(response.status_code, HTTPStatus.OK)
+    #response_data = GetUserResponseSchema.model_validate(response.json())
+    response_data = GetUserResponseSchema.model_validate_json(response.text)
 
     # Проверяем корректность данных пользователя
     assert_get_user_response(response_data,function_user.response)

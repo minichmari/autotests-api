@@ -1,4 +1,5 @@
-from clients.users.users_schema import CreateUserRequestSchema, CreateUserResponseSchema, UserSchema
+from clients.users.users_schema import CreateUserRequestSchema, CreateUserResponseSchema, UserSchema, \
+    GetUserResponseSchema
 from tools.assertions.base import assert_equal
 
 
@@ -24,7 +25,14 @@ def assert_user(actual: UserSchema, expected: UserSchema):
     assert_equal(actual.middle_name, expected.middle_name, "middle_name")
 
 
-def assert_get_user_response(get_user_response: UserSchema, create_user_response:CreateUserResponseSchema):
-    """Проверяет, что данные пользователя при создании и при запросе совпадают"""
-    assert_equal(get_user_response.model_dump(), create_user_response.model_dump(), "Users")
+def assert_get_user_response(get_user_response: GetUserResponseSchema, create_user_response:CreateUserResponseSchema):
+
+    """
+        Проверяет, что ответ на получение пользователя соответствует ответу на его создание.
+
+        :param get_user_response: Ответ API при запросе данных пользователя.
+        :param create_user_response: Ответ API при создании пользователя.
+        :raises AssertionError: Если данные пользователя не совпадают.
+        """
+    assert_user(get_user_response.user, create_user_response.user)
 
