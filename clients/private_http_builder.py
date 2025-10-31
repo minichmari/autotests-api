@@ -1,15 +1,15 @@
-from typing import TypedDict
+from functools import lru_cache  # Импортируем функцию для кеширования
 from pydantic import BaseModel, EmailStr
 from httpx import Client
 
 from clients.authentication.authentication_client import get_authentication_client
 from clients.authentication.authentication_schema import LoginRequestSchema
 
-class AuthenticationUserSchema(BaseModel):  # Структура данных пользователя для авторизации
+class AuthenticationUserSchema(BaseModel, frozen=True):   # Структура данных пользователя для авторизации
     email: EmailStr
     password: str
 
-
+@lru_cache(maxsize=None)  # Кешируем возвращаемое значение
 # Создаем private builder
 def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     """
