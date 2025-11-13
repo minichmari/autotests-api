@@ -108,6 +108,12 @@ def assert_file_not_found_response(actual: InternalErrorResponseSchema):
 
 
 def assert_get_file_with_incorrect_file_id_response(actual: ValidationErrorResponseSchema):
+    """
+     Проверяет, что ответ на получение файла с некорректным значением file_id соответствует ожидаемой валидационной ошибке.
+
+     :param actual: Ответ от API с ошибкой валидации, который необходимо проверить.
+     :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
+     """
     expected = ValidationErrorResponseSchema(
         details=[
             ValidationErrorSchema(
