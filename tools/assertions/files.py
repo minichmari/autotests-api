@@ -121,7 +121,7 @@ def assert_get_file_with_incorrect_file_id_response(actual: ValidationErrorRespo
                 input="incorrect-file-id",  # Некорректный file_id.
                 context={"error": "invalid character: expected an optional prefix of `urn:uuid:` followed by [0-9a-fA-F-], found `i` at 1"},  #  file_id должен быть uuid
                 message="Input should be a valid UUID, invalid character: expected an optional prefix of `urn:uuid:` followed by [0-9a-fA-F-], found `i` at 1",  # Сообщение об ошибке.
-                location=["path", "file_id"]  # Ошибка возникает в path запроса, поле "file_id".
+                location=["path", "file_id"]  # Ошибка возникает в path запроса, параметр "file_id".
             )
         ]
     )

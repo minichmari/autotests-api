@@ -2,12 +2,12 @@ from clients.api_client import APIClient
 from httpx import Response
 
 from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
-from clients.courses.courses_schema import GetCourseQuerySchema, CreateCourseRequestSchema, UpdateCourseRequestSchema, \
+from clients.courses.courses_schema import GetCoursesQuerySchema, CreateCourseRequestSchema, UpdateCourseRequestSchema, \
     CreateCourseResponseSchema
 
 
 class CoursesClient(APIClient):
-    def get_courses_api(self, query: GetCourseQuerySchema) -> Response:
+    def get_courses_api(self, query: GetCoursesQuerySchema) -> Response:
         return self.get("/api/v1/courses", params=query.model_dump(by_alias=True))
 
     def get_course_api(self, course_id: str) -> Response:
