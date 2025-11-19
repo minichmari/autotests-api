@@ -68,7 +68,7 @@ def assert_create_course_response(
     Проверяет, что ответ на создание курса соответствует данным из запроса.
 
     :param request: Исходный запрос на создание курса.
-    :param response: Ответ API с обновленными данными курса.
+    :param response: Ответ API с данными курса.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
     assert_equal(response.course.title, request.title, "title")
