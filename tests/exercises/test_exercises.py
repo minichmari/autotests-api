@@ -9,7 +9,8 @@ from clients.exercises.exercises_schema import CreateExerciseRequestSchema, Crea
 from fixtures.courses import CourseFixture
 from fixtures.exercises import ExerciseFixture
 from tools.assertions.base import assert_status_code
-from tools.assertions.exercises import assert_create_exercise_response, assert_get_exercise_response
+from tools.assertions.exercises import assert_create_exercise_response, assert_get_exercise_response, \
+    assert_get_exercises_response
 from tools.assertions.schema import validate_json_schema
 
 
@@ -51,7 +52,7 @@ class TestExercises:
 
         # Проверяем, что код ответа 200 OK
         assert_status_code(response.status_code, HTTPStatus.OK)
-        # Проверяем, что список курсов соответствует ранее созданным курсам
+        # Проверяем, что курс соответствует ранее созданному
         assert_get_exercise_response(response_data, function_exercise.response)
 
         # Проверяем соответствие JSON-ответа схеме
@@ -77,7 +78,7 @@ class TestExercises:
         # Проверяем, что код ответа 200 OK
         assert_status_code(response.status_code, HTTPStatus.OK)
         # Проверяем, что список курсов соответствует ранее созданным курсам
-        assert_get_exercise_response(response_data, [function_exercise.response])
+        assert_get_exercises_response(response_data, [function_exercise.response])
 
         # Проверяем соответствие JSON-ответа схеме
         validate_json_schema(response.json(), response_data.model_json_schema())
