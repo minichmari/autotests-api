@@ -42,19 +42,16 @@ def assert_exercise(actual: ExerciseSchema, expected: ExerciseSchema):
 
 
 def assert_get_exercise_response(
-        get_exercises_response: GetExercisesResponseSchema,
-        create_exercise_responses: list[CreateExerciseResponseSchema]
+        get_exercise_response: GetExerciseResponseSchema,
+        create_exercise_response: CreateExerciseResponseSchema
 ):
     """
-    Проверяет, что ответ на получение списка заданий соответствует ответам на их создание.
+    Проверяет, что ответ на получение заданий соответствует ответ на их создание.
 
-    :param get_exercises_response: Ответ API при запросе списка заданий.
+    :param get_exercise_response: Ответ API при запросе  заданий.
     :param create_exercise_responses: Список API ответа при создании заданий.
-    :raises AssertionError: Если данные заданий не совпадают.
+    :raises AssertionError: Если данные не совпадают.
     """
-    assert_length(get_exercises_response.exercises, create_exercise_responses, "exercises")
-
-    for index, create_exercise_response in enumerate(create_exercise_responses):
-        assert_exercise(get_exercises_response.exercises[index], create_exercise_response.exercise)
+    assert_exercise(get_exercise_response.exercise, create_exercise_response.exercise)
 
 
