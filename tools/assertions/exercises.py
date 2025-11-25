@@ -1,5 +1,6 @@
 from clients.exercises.exercises_schema import CreateExerciseRequestSchema, CreateExerciseResponseSchema, \
-    ExerciseSchema, GetExerciseResponseSchema, GetExercisesResponseSchema
+    ExerciseSchema, GetExerciseResponseSchema, GetExercisesResponseSchema, UpdateExerciseRequestSchema, \
+    UpdateExerciseResponseSchema
 from tools.assertions.base import assert_equal, assert_length
 
 
@@ -46,10 +47,10 @@ def assert_get_exercise_response(
         create_exercise_response: CreateExerciseResponseSchema
 ):
     """
-    Проверяет, что ответ на получение заданий соответствует ответ на их создание.
+    Проверяет, что ответ на получение задания соответствует ответу на его создание.
 
-    :param get_exercise_response: Ответ API при запросе  заданий.
-    :param create_exercise_responses: Список API ответа при создании заданий.
+    :param get_exercise_response: Ответ API при запросе задания.
+    :param create_exercise_response: Ответ API при создании задания.
     :raises AssertionError: Если данные не совпадают.
     """
     assert_exercise(get_exercise_response.exercise, create_exercise_response.exercise)
@@ -68,4 +69,24 @@ def assert_get_exercises_response(
 
     for index, create_exercise_response in enumerate(create_exercise_responses):
         assert_exercise(get_exercises_response.exercises[index], create_exercise_response.exercise)
+
+
+def assert_update_exercise_response(
+        request: UpdateExerciseRequestSchema,
+        response: UpdateExerciseResponseSchema
+):
+    """
+    Проверяет, что ответ на обновление задания соответствует данным из запроса.
+
+    :param request: Исходный запрос на обновление задания.
+    :param response: Ответ API с обновленными данными задания.
+    :raises AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(response.exercise.title, request.title, "title")
+    assert_equal(response.exercise.max_score, request.max_score, "max_score")
+    assert_equal(response.exercise.min_score, request.min_score, "min_score")
+    assert_equal(response.exercise.order_index, request.order_index, "order_index")
+    assert_equal(response.exercise.description, request.description, "description")
+    assert_equal(response.exercise.estimated_time, request.estimated_time, "estimated_time")
+
 
