@@ -2,6 +2,7 @@ from http import HTTPStatus
 
 import pytest
 
+from clients.errors_schema import InternalErrorResponseSchema
 from clients.exercises.exercises_client import ExercisesClient
 from clients.exercises.exercises_schema import CreateExerciseRequestSchema, CreateExerciseResponseSchema, \
     GetExerciseQuerySchema, GetExercisesResponseSchema, GetExerciseResponseSchema, UpdateExerciseRequestSchema, \
@@ -10,7 +11,7 @@ from fixtures.courses import CourseFixture
 from fixtures.exercises import ExerciseFixture
 from tools.assertions.base import assert_status_code
 from tools.assertions.exercises import assert_create_exercise_response, assert_get_exercise_response, \
-    assert_get_exercises_response, assert_update_exercise_response
+    assert_get_exercises_response, assert_update_exercise_response, assert_exercise_not_found_response
 from tools.assertions.schema import validate_json_schema
 
 
@@ -106,5 +107,31 @@ class TestExercises:
 
         # Проверяем соответствие JSON-ответа схеме
         validate_json_schema(response.json(), response_data.model_json_schema())
+
+
+    def test_delete_exercise(
+            self,
+            exercises_client: ExercisesClient,
+            function_exercise: ExerciseFixture
+    ):
+
+        # 1. Удаляем задание
+        delete_response = exercises_client.delete_exercise_api(function_exercise.response.exercise.id)
+
+        # 2. Проверяем, что задание успешно удалено (статус 200 OK)
+        assert_status_code(delete_response.status_code, HTTPStatus.OK)
+
+        # 3. Пытаемся получить удаленное задание
+        get_response = exercises_client.get_exercise_api(function_exercise.response.exercise.id)
+        get_response_data = InternalErrorResponseSchema.model_validate_json(get_response.text)
+
+        # 4. Проверяем, что сервер вернул 404 Not Found
+        assert_status_code(get_response.status_code, HTTPStatus.NOT_FOUND)
+
+        # 5. Проверяем, что в ответе содержится ошибка "Exercise not found"
+        assert_exercise_not_found_response(get_response_data)
+
+        # 6. Проверяем, что ответ соответствует схеме
+        validate_json_schema(get_response.json(), get_response_data.model_json_schema())
 
 
