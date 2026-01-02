@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/exercises' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjMxLjQyMDU5OSIsInVzZXJfaWQiOiJhMTZjOTA3MS05ZjdjLTQzNDEtODkzZi0wOGQ3YzY0MDNiZmMifQ.n5yXTstroT12-BDVaemwAEXpH44eFGyA7H45lsnzG5E' \
+  -H 'content-length: 345' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Teach network energy.","courseId":"22b9330a-5d8b-4bfc-a5e1-e2f9df2c6dda","maxScore":98,"minScore":19,"orderIndex":77,"description":"Relationship however admit discover culture behind physical. Property have important. Page black continue evidence.\nThroughout expect site. Color family challenge back even.","estimatedTime":"10 weeks"}'

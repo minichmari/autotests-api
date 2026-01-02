@@ -1,0 +1,11 @@
+curl -X 'PATCH' \
+  'http://localhost:8000/api/v1/exercises/22064bad-b195-4366-bb80-24b70ca24e64' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjMyLjI0MTU3MSIsInVzZXJfaWQiOiI0YzQxYWRmMC1iNWYyLTQxMGMtYjM4Yi04ZDIzNWJkMzgzYmYifQ.geIvbqSBKWBeSJAAssUL4ebvLbhdTncRm23uUV8v6cM' \
+  -H 'content-length: 236' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Other range computer.","maxScore":71,"minScore":2,"orderIndex":25,"description":"Whether all majority support central range pressure modern. Practice itself teacher kid finish decade best authority.","estimatedTime":"1 weeks"}'

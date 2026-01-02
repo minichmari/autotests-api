@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjI3LjIwODM4NSIsInVzZXJfaWQiOiJhY2E5YTU1Zi0wOGU5LTQyM2MtYTQ1NC0yMTAxNjhjMzMzMGQifQ.Vw8U2ZbNPXmvxhIH_ZNJNH_mq6Tm4pvlnptna37WxA0' \
+  -H 'content-length: 384' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Outside wind ask.","maxScore":75,"minScore":5,"description":"Available other admit rule change laugh brother. Develop star store short stand population. Key hair minute central military. Send available quickly represent learn bad any.","estimatedTime":"4 weeks","previewFileId":"0cfbe559-62d4-48ed-8c03-2e8943b75c28","createdByUserId":"aca9a55f-08e9-423c-a454-210168c3330d"}'

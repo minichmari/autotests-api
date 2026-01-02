@@ -1,0 +1,11 @@
+curl -X 'PATCH' \
+  'http://localhost:8000/api/v1/courses/8013ed7b-f2d5-4233-a5f4-d91317affdda' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjI3LjIwODM4NSIsInVzZXJfaWQiOiJhY2E5YTU1Zi0wOGU5LTQyM2MtYTQ1NC0yMTAxNjhjMzMzMGQifQ.Vw8U2ZbNPXmvxhIH_ZNJNH_mq6Tm4pvlnptna37WxA0' \
+  -H 'content-length: 275' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Across on friend firm positive.","maxScore":80,"minScore":4,"description":"Right example sport.\nPage four fall apply.\nPer moment feeling work along defense and body. Field on note exactly. Social seven night describe onto network long.","estimatedTime":"3 weeks"}'

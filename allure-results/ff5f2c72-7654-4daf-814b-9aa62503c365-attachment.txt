@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjMxLjQyMDU5OSIsInVzZXJfaWQiOiJhMTZjOTA3MS05ZjdjLTQzNDEtODkzZi0wOGQ3YzY0MDNiZmMifQ.n5yXTstroT12-BDVaemwAEXpH44eFGyA7H45lsnzG5E' \
+  -H 'content-length: 389' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Responsibility on lose actually instead.","maxScore":89,"minScore":4,"description":"Hit consumer capital as which media four. My talk TV baby this during. Prevent cold grow stay thank form.\nBorn rather design especially stuff ahead child.","estimatedTime":"1 weeks","previewFileId":"51a430d9-44e2-47a3-97ee-9e836da3584e","createdByUserId":"a16c9071-9f7c-4341-893f-08d7c6403bfc"}'

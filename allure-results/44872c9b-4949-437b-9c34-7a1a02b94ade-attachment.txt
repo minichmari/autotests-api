@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjI5Ljc2NDkxNiIsInVzZXJfaWQiOiI2N2ExMTJmOS1lZjYyLTQ4YTItODJmMC1lNzQ2MTNiODI3ZWYifQ.VfAd_P4fcOUJTKaD2annTBotIj848tL7tUQQSShsA9Q' \
+  -H 'content-length: 383' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Best despite decade.","maxScore":65,"minScore":19,"description":"Nice both dream president still pressure bring. Message individual accept research thing discover.\nNational figure eye field check fight. Voice indeed me read article.","estimatedTime":"8 weeks","previewFileId":"b82f39ae-0d2a-4031-933a-c4958536e7d2","createdByUserId":"67a112f9-ef62-48a2-82f0-e74613b827ef"}'

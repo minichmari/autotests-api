@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAxLTAyVDA5OjEzOjMyLjI0MTU3MSIsInVzZXJfaWQiOiI0YzQxYWRmMC1iNWYyLTQxMGMtYjM4Yi04ZDIzNWJkMzgzYmYifQ.geIvbqSBKWBeSJAAssUL4ebvLbhdTncRm23uUV8v6cM' \
+  -H 'content-length: 410' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Cold available person partner painting.","maxScore":88,"minScore":23,"description":"Industry mind behavior detail want. Great PM of research what partner.\nLong sign another thus both whole goal. Eight smile better they financial meet truth. Source lay learn.","estimatedTime":"10 weeks","previewFileId":"90b9b29b-1102-42ad-b1fb-b242d94af428","createdByUserId":"4c41adf0-b5f2-410c-b38b-8d235bd383bf"}'
